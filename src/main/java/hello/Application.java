@@ -184,12 +184,12 @@ public class Application {
 			Arena arena = arenaUpdate.arena;
 			String map[][] = new String[arena.dims.get(0)][arena.dims.get(1)];
 			Map<String, PlayerState> playerState = arenaUpdate.arena.state;
-			System.out.println("me="+playerState);
+			
 			for (PlayerState p : playerState.values()) {
 				map[p.x][p.y] = p.direction;
 			}
 			PlayerState me = playerState.get(arenaUpdate._links.self.href);
-
+			System.out.println("me="+me);
 			if (canBeAttacked(map, me.x, me.y)) {
 				if (canRunWay(map, me.x, me.y, me.direction)) {
 					return "F";
