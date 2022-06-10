@@ -162,11 +162,11 @@ public class Application {
 			cntN++;
 
 		int cntS = 0;
-		if (me.y + 1 < map[0].length && map[me.y][me.y + 1] != null)
+		if (me.y + 1 < map[0].length && map[me.x][me.y + 1] != null)
 			cntS++;
-		if (me.y + 2 < map[0].length && map[me.y][me.y + 2] != null)
+		if (me.y + 2 < map[0].length && map[me.x][me.y + 2] != null)
 			cntS++;
-		if (me.y + 3 < map[0].length && map[me.y][me.y + 2] != null)
+		if (me.y + 3 < map[0].length && map[me.x][me.y + 2] != null)
 			cntS++;
 
 		int max = Math.max(Math.max(cntW, cntE),Math.max(cntN, cntS));
