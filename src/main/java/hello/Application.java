@@ -55,10 +55,38 @@ public class Application {
 
   @PostMapping("/**")
   public String index(@RequestBody ArenaUpdate arenaUpdate) {
-    System.out.println(arenaUpdate);
-    String[] commands = new String[]{"F", "R", "L", "T"};
+System.out.println(arenaUpdate);
+    
+    Arena arena =arenaUpdate.arena;
+    Map<String, PlayerState> playerState = arenaUpdate.arena.state;
+    PlayerState me = playerState.get("阿翔");
+	switch (me.direction) {
+	case "N":
+		if(me.y==0) {
+			return "L";
+		}
+		break;
+	case "W":
+		if(me.x==0) {
+			return "L";
+		}
+		break;
+	case "S":
+		if(me.y==arena.dims.get(1)) {
+			return "L";
+		}
+		break;
+	case "E":
+		if(me.x==arena.dims.get(0)) {
+			return "L";
+		}
+		break;
+	}
+	return "F";
+	
+    /*String[] commands = new String[]{"F", "R", "L", "T"};
     int i = new Random().nextInt(4);
-    return commands[i];
+    return commands[i];*/
   }
 
 }
