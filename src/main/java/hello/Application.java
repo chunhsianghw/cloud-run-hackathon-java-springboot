@@ -154,11 +154,11 @@ public class Application {
 			cntE++;
 
 		int cntN = 0;
-		if (me.y - 1 > 0 && map[me.x - 1][me.y] != null)
+		if (me.y - 1 > 0 && map[me.x][me.y - 1] != null)
 			cntN++;
-		if (me.y - 2 > 0 && map[me.x - 2][me.y] != null)
+		if (me.y - 2 > 0 && map[me.x][me.y - 2] != null)
 			cntN++;
-		if (me.y - 3 > 0 && map[me.x - 3][me.y] != null)
+		if (me.y - 3 > 0 && map[me.x][me.y - 3] != null)
 			cntN++;
 
 		int cntS = 0;
