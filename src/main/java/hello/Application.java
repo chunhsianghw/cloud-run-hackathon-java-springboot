@@ -55,11 +55,12 @@ public class Application {
 
   @PostMapping("/**")
   public String index(@RequestBody ArenaUpdate arenaUpdate) {
-System.out.println(arenaUpdate);
+    System.out.println(arenaUpdate);
     
     Arena arena =arenaUpdate.arena;
     Map<String, PlayerState> playerState = arenaUpdate.arena.state;
-    PlayerState me = playerState.get("阿翔");
+    System.out.println(playerState.keySet());
+    /*PlayerState me = playerState.get("阿翔");
 	switch (me.direction) {
 	case "N":
 		if(me.y==0) {
@@ -83,10 +84,10 @@ System.out.println(arenaUpdate);
 		break;
 	}
 	return "F";
-	
-    /*String[] commands = new String[]{"F", "R", "L", "T"};
+	*/
+    String[] commands = new String[]{"F", "R", "L", "T"};
     int i = new Random().nextInt(4);
-    return commands[i];*/
+    return commands[i];
   }
 
 }
