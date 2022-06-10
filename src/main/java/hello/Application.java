@@ -210,9 +210,10 @@ public class Application {
 			}else if("E".equals(targetD)&&me.direction.equals("E")) {
 				return "T";
 			}
-			String[] commands = new String[] { "R", "L" };
-			int i = new Random().nextInt(2);
-			return commands[i];
+			//String[] commands = new String[] { "R", "L" };
+			//int i = new Random().nextInt(2);
+			//return commands[i];
+			return "R";
 		} catch (Exception e) {
 			e.printStackTrace();
 			String[] commands = new String[] { "F", "R", "L", "T" };
