@@ -80,12 +80,11 @@ public class Application {
 
   @PostMapping("/**")
   public String index(@RequestBody ArenaUpdate arenaUpdate) {
-    System.out.println(arenaUpdate);
+    //System.out.println(arenaUpdate);
     
     Arena arena =arenaUpdate.arena;
     Map<String, PlayerState> playerState = arenaUpdate.arena.state;
-    logger.info(playerState.keySet().toString());
-    /*PlayerState me = playerState.get("阿翔");
+    PlayerState me = playerState.get(arenaUpdate._links.self.href);
 	switch (me.direction) {
 	case "N":
 		if(me.y==0) {
@@ -109,10 +108,10 @@ public class Application {
 		break;
 	}
 	return "F";
-	*/
-    String[] commands = new String[]{"F", "R", "L", "T"};
-    int i = new Random().nextInt(4);
-    return commands[i];
+	
+    //String[] commands = new String[]{"F", "R", "L", "T"};
+    //int i = new Random().nextInt(4);
+    //return commands[i];
   }
 
 }
