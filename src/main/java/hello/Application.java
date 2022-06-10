@@ -77,15 +77,54 @@ public class Application {
   public String index() {
     return "Let the battle begin!";
   }
-
+  
+  public boolean canBeAttacked(String map[][] , int x, int y) {
+	  if(x-1>0&&"E".equals(map[x-1][y]))
+		  return true;
+	  if(x-2>0&&"E".equals(map[x-2][y]))
+		  return true;
+	  if(x-3>0&&"E".equals(map[x-3][y]))
+		  return true;
+	  if(x+1<map.length&&"W".equals(map[x+1][y]))
+		  return true;
+	  if(x+2<map.length&&"W".equals(map[x+2][y]))
+		  return true;
+	  if(x+3<map.length&&"W".equals(map[x+3][y]))
+		  return true;
+	  if(y-1>0&&"S".equals(map[y-1][y]))
+		  return true;
+	  if(y-2>0&&"S".equals(map[y-2][y]))
+		  return true;
+	  if(y-3>0&&"S".equals(map[y-3][y]))
+		  return true;
+	  if(y+1<map[0].length&&"N".equals(map[y+1][y]))
+		  return true;
+	  if(y+2<map[0].length&&"N".equals(map[y+2][y]))
+		  return true;
+	  if(y+3<map[0].length&&"N".equals(map[y+3][y]))
+		  return true;
+	  return false;
+  }
+  
   @PostMapping("/**")
   public String index(@RequestBody ArenaUpdate arenaUpdate) {
     //System.out.println(arenaUpdate);
-    
     Arena arena =arenaUpdate.arena;
+    String map[][] = new String[arena.dims.get(0)][arena.dims.get(1)];
     Map<String, PlayerState> playerState = arenaUpdate.arena.state;
+    for(PlayerState p : playerState.values()) {
+    	map[p.x][p.y]=p.direction;
+    }
     PlayerState me = playerState.get(arenaUpdate._links.self.href);
-	switch (me.direction) {
+	
+    if(canBeAttacked(map, me.x, me.y)) {
+    	String[] commands = new String[]{"F", "R", "L"};
+        int i = new Random().nextInt(4);
+        return commands[i];
+    }
+    
+    return "T";
+    /*switch (me.direction) {
 	case "N":
 		if(me.y==0) {
 			return "L";
@@ -107,7 +146,7 @@ public class Application {
 		}
 		break;
 	}
-	return "F";
+	return "F";*/
 	
     //String[] commands = new String[]{"F", "R", "L", "T"};
     //int i = new Random().nextInt(4);
