@@ -16,15 +16,30 @@ import java.util.Random;
 public class Application {
 	private static final Logger logger = LoggerFactory.getLogger(Application.class);
   static class Self {
-    public String href;
+    @Override
+	public String toString() {
+		return "Self [href=" + href + "]";
+	}
+
+	public String href;
   }
 
   static class Links {
-    public Self self;
+    @Override
+	public String toString() {
+		return "Links [self=" + self + "]";
+	}
+
+	public Self self;
   }
 
   static class PlayerState {
-    public Integer x;
+    @Override
+	public String toString() {
+		return "PlayerState [x=" + x + ", y=" + y + ", direction=" + direction + ", wasHit=" + wasHit + ", score="
+				+ score + "]";
+	}
+	public Integer x;
     public Integer y;
     public String direction;
     public Boolean wasHit;
@@ -32,12 +47,20 @@ public class Application {
   }
 
   static class Arena {
-    public List<Integer> dims;
+    @Override
+	public String toString() {
+		return "Arena [dims=" + dims + ", state=" + state + "]";
+	}
+	public List<Integer> dims;
     public Map<String, PlayerState> state;
   }
 
   static class ArenaUpdate {
-    public Links _links;
+    @Override
+	public String toString() {
+		return "ArenaUpdate [_links=" + _links + ", arena=" + arena + "]";
+	}
+	public Links _links;
     public Arena arena;
   }
 
