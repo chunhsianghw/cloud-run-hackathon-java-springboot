@@ -178,13 +178,13 @@ public class Application {
 		return null;
 	}
 
-	@PostMapping("/**")
-	public String index(@RequestBody ArenaUpdate arenaUpdate) {
+	public String foo(ArenaUpdate arenaUpdate) {
 		try {
 			// System.out.println(arenaUpdate);
 			Arena arena = arenaUpdate.arena;
 			String map[][] = new String[arena.dims.get(0)][arena.dims.get(1)];
 			Map<String, PlayerState> playerState = arenaUpdate.arena.state;
+			System.out.println("me="+playerState);
 			for (PlayerState p : playerState.values()) {
 				map[p.x][p.y] = p.direction;
 			}
@@ -225,6 +225,13 @@ public class Application {
 			int i = new Random().nextInt(4);
 			return commands[i];
 		}
+	}
+	
+	@PostMapping("/**")
+	public String index(@RequestBody ArenaUpdate arenaUpdate) {
+		String r = foo(arenaUpdate);
+		System.out.println(r);
+		return r;
 	}
 
 }
