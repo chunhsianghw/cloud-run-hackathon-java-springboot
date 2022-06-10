@@ -106,6 +106,32 @@ public class Application {
 	  return false;
   }
   
+  public boolean canRunWay(String map[][] , int x, int y, String direction) {
+	  switch (direction) {
+		case "N":
+			if(y-1>0&&map[x][y-1]==null) {
+				return true;
+			}
+			break;
+		case "S":
+			if(y+1<=map[0].length&&map[x][y+1]==null) {
+				return true;
+			}
+			break;
+		case "W":
+			if(x+1<=map.length&&map[x+1][y]==null) {
+				return true;
+			}
+			break;
+		case "E":
+			if(x-1<=map.length&&map[x-1][y]==null) {
+				return true;
+			}
+			break;
+		}
+	  return false;
+  }
+  
   @PostMapping("/**")
   public String index(@RequestBody ArenaUpdate arenaUpdate) {
     //System.out.println(arenaUpdate);
@@ -118,7 +144,11 @@ public class Application {
     PlayerState me = playerState.get(arenaUpdate._links.self.href);
 	
     if(canBeAttacked(map, me.x, me.y)) {
-    	String[] commands = new String[]{"F", "R", "L"};
+    	if(canRunWay(map, me.x, me.y, me.direction)) {
+    		return "F";
+    	}
+    	
+    	String[] commands = new String[]{"R", "L"};
         int i = new Random().nextInt(4);
         return commands[i];
     }
