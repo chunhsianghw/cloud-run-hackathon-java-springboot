@@ -196,7 +196,7 @@ public class Application {
 				}
 
 				String[] commands = new String[] { "R", "L" };
-				int i = new Random().nextInt(4);
+				int i = new Random().nextInt(2);
 				return commands[i];
 			}
 
@@ -211,7 +211,7 @@ public class Application {
 				return "T";
 			}
 			String[] commands = new String[] { "R", "L" };
-			int i = new Random().nextInt(4);
+			int i = new Random().nextInt(2);
 			return commands[i];
 		} catch (Exception e) {
 			e.printStackTrace();
