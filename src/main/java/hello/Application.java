@@ -124,12 +124,48 @@ public class Application {
 			}
 			break;
 		case "E":
-			if(x-1<=map.length&&map[x-1][y]==null) {
+			if(x-1>0&&map[x-1][y]==null) {
 				return true;
 			}
 			break;
 		}
 	  return false;
+  }
+  
+  public String findMaxEnemydirection(String map[][] , PlayerState me) {
+	  int cntN = 0;
+	  /*if(x-1>0&&"E".equals(map[x-1][y]))
+		  cntN++;
+	  if(x-2>0&&"E".equals(map[x-2][y]))
+		  cntN++;
+	  if(x-3>0&&"E".equals(map[x-3][y]))
+		  cntN++;
+	  
+	  int cntN = 0;
+	  if(x+1<map.length&&"W".equals(map[x+1][y]))
+		  return true;
+	  if(x+2<map.length&&"W".equals(map[x+2][y]))
+		  return true;
+	  if(x+3<map.length&&"W".equals(map[x+3][y]))
+		  return true;
+	  
+	  int cntN = 0;
+	  if(y-1>0&&"S".equals(map[y-1][y]))
+		  return true;
+	  if(y-2>0&&"S".equals(map[y-2][y]))
+		  return true;
+	  if(y-3>0&&"S".equals(map[y-3][y]))
+		  return true;
+	  
+	  int cntN = 0;
+	  if(y+1<map[0].length&&"N".equals(map[y+1][y]))
+		  return true;
+	  if(y+2<map[0].length&&"N".equals(map[y+2][y]))
+		  return true;
+	  if(y+3<map[0].length&&"N".equals(map[y+3][y]))
+		  return true;
+	  */
+	  return null;
   }
   
   @PostMapping("/**")
