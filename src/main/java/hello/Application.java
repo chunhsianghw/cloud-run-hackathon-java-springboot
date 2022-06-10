@@ -114,12 +114,12 @@ public class Application {
 			}
 			break;
 		case "S":
-			if(y+1<=map[0].length&&map[x][y+1]==null) {
+			if(y+1<map[0].length&&map[x][y+1]==null) {
 				return true;
 			}
 			break;
 		case "W":
-			if(x+1<=map.length&&map[x+1][y]==null) {
+			if(x+1<map.length&&map[x+1][y]==null) {
 				return true;
 			}
 			break;
@@ -133,29 +133,29 @@ public class Application {
   }
   
   public String findMaxEnemydirection(String map[][] , PlayerState me) {
-	  int cntN = 0;
-	  /*if(x-1>0&&"E".equals(map[x-1][y]))
-		  cntN++;
-	  if(x-2>0&&"E".equals(map[x-2][y]))
-		  cntN++;
-	  if(x-3>0&&"E".equals(map[x-3][y]))
-		  cntN++;
+	  int cntW = 0;
+	  if(me.x-1>0&&map[me.x-1][me.y]!=null)
+		  cntW++;
+	  if(me.x-2>0&&"E".equals(map[me.x-2][me.y]))
+		  cntW++;
+	  if(me.x-3>0&&"E".equals(map[me.x-3][me.y]))
+		  cntW++;
 	  
-	  int cntN = 0;
-	  if(x+1<map.length&&"W".equals(map[x+1][y]))
-		  return true;
-	  if(x+2<map.length&&"W".equals(map[x+2][y]))
-		  return true;
-	  if(x+3<map.length&&"W".equals(map[x+3][y]))
-		  return true;
+	  int cntE = 0;
+	  if(me.x+1<map.length&&map[me.x+1][me.y]!=null)
+		  cntE++;
+	  if(me.x+2<map.length&&map[me.x+2][me.y]!=null)
+		  cntE++;
+	  if(me.x+3<map.length&&map[me.x+3][me.y]!=null)
+		  cntE++;
 	  
-	  int cntN = 0;
+	  /*int cntN = 0;
 	  if(y-1>0&&"S".equals(map[y-1][y]))
-		  return true;
+		  cntN++;
 	  if(y-2>0&&"S".equals(map[y-2][y]))
-		  return true;
+		  cntN++;
 	  if(y-3>0&&"S".equals(map[y-3][y]))
-		  return true;
+		  cntN++;
 	  
 	  int cntN = 0;
 	  if(y+1<map[0].length&&"N".equals(map[y+1][y]))
