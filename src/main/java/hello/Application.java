@@ -201,6 +201,11 @@ public class Application {
 			}
 
 			String targetD = findMaxEnemydirection(map, me);
+			if(targetD==null) {
+				String[] commands = new String[] { "F", "R", "L" };
+				int i = new Random().nextInt(3);
+				return commands[i];
+			}
 			if("N".equals(targetD)&&me.direction.equals("N")) {
 				return "T";
 			}else if("S".equals(targetD)&&me.direction.equals("S")) {
