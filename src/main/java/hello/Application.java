@@ -1,5 +1,7 @@
 package hello;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.WebDataBinder;
@@ -12,7 +14,7 @@ import java.util.Random;
 @SpringBootApplication
 @RestController
 public class Application {
-
+	private static final Logger logger = LoggerFactory.getLogger(Application.class);
   static class Self {
     public String href;
   }
@@ -59,7 +61,7 @@ public class Application {
     
     Arena arena =arenaUpdate.arena;
     Map<String, PlayerState> playerState = arenaUpdate.arena.state;
-    System.out.println(playerState.keySet());
+    logger.info(playerState.keySet().toString());
     /*PlayerState me = playerState.get("阿翔");
 	switch (me.direction) {
 	case "N":
