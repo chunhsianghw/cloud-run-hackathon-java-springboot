@@ -95,17 +95,17 @@ public class Application {
 			return true;
 		if (x + 3 < map.length && "W".equals(map[x + 3][y]))
 			return true;
-		if (y - 1 > 0 && "S".equals(map[y - 1][y]))
+		if (y - 1 > 0 && "S".equals(map[x][y - 1]))
 			return true;
-		if (y - 2 > 0 && "S".equals(map[y - 2][y]))
+		if (y - 2 > 0 && "S".equals(map[x][y - 2]))
 			return true;
-		if (y - 3 > 0 && "S".equals(map[y - 3][y]))
+		if (y - 3 > 0 && "S".equals(map[x][y - 3]))
 			return true;
-		if (y + 1 < map[0].length && "N".equals(map[y + 1][y]))
+		if (y + 1 < map[0].length && "N".equals(map[x][y + 1]))
 			return true;
-		if (y + 2 < map[0].length && "N".equals(map[y + 2][y]))
+		if (y + 2 < map[0].length && "N".equals(map[x][y + 2]))
 			return true;
-		if (y + 3 < map[0].length && "N".equals(map[y + 3][y]))
+		if (y + 3 < map[0].length && "N".equals(map[x][y + 3]))
 			return true;
 		return false;
 	}
